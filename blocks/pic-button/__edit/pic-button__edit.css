@@ -1,6 +1,15 @@
-.pic-button__edit {
-  all: unset;
-  width: 7px;
-  border: 1px solid white;
-  padding: 5px 5px;
+@media screen and (min-width: 320px) {
+  .pic-button__edit {
+    all: unset;
+    width: 7px;
+    border: 1px solid white;
+    padding: 5px 5px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .pic-button__edit {
+    width: 9px;
+    padding: 7px 7px;
+  }
 }
