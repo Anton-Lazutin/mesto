@@ -1,0 +1,7 @@
+@media screen and (min-width: 320px) {
+  .photo-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

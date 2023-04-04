@@ -1,0 +1,6 @@
+.button__add {
+  all: unset;
+  margin: 32px 0 0;
+  border: 2px solid white;
+  padding: 10px 128px;
+}

@@ -1,0 +1,6 @@
+.button__edit {
+  all: unset;
+  position: absolute;
+  left: 105%;
+  top: 42%;
+}

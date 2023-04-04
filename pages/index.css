@@ -1,0 +1,28 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/Inter-Web/inter.css);
+
+@import url(../blocks/page/page.css);
+
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__logo/header__logo.css);
+@import url(../blocks/button/__edit/button__edit.css);
+@import url(../blocks/button/__add/button__add.css);
+@import url(../blocks/button/__like/button__like.css);
+
+@import url(../blocks/pic-button/__edit/pic-button__edit.css);
+
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__photo/profile__photo.css);
+@import url(../blocks/profile/__name/profile__name.css);
+@import url(../blocks/profile/__hobby/profile__hobby.css);
+
+@import url(../blocks/photo-cards/photo-cards.css);
+@import url(../blocks/card/card.css);
+@import url(../blocks/card/__pic/card__pic.css);
+@import url(../blocks/card/__info/card__info.css);
+@import url(../blocks/card/__title/card__title.css);
+@import url(../blocks/pic-button/__like/pic-button__like.css);
+
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);

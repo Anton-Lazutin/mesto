@@ -1,0 +1,11 @@
+.card {
+  height: 361px;
+  width: 90%;
+  background-color: #fff;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.card:last-of-type {
+  margin: 0;
+}
