@@ -1,5 +1,5 @@
 @media screen and (min-width: 320px) {
-  .button__edit {
+  .profile__edit-btn {
     all: unset;
     background-image: url(../../../images/button__edit.svg);
     background-size: 100% 100%;
@@ -15,14 +15,14 @@
 }
 
 @media screen and (min-width: 768px) {
-  .button__edit {
+  .profile__edit-btn  {
     width: 9px;
     height: 9px;
     padding: 7px 7px;
   }
 }
 
-.button__edit:hover {
+.profile__edit-btn:hover {
   opacity: 0.6;
   transition: opacity 0.4s linear;
   cursor: pointer;

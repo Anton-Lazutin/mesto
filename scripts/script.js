@@ -1,4 +1,4 @@
-let openButton = document.querySelector('.button__edit');
+let openButton = document.querySelector('.profile__edit-btn');
 let popup = document.querySelector('.popup');
 
 function openPopup() {
@@ -6,7 +6,7 @@ function openPopup() {
 }
 openButton.addEventListener('click', openPopup);
 
-let closeButton = document.querySelector('.button__close');
+let closeButton = document.querySelector('.popup__close-btn');
 
 function closePopup() {
     popup.classList.remove('popup__opened');
@@ -21,7 +21,7 @@ let inputHobby = document.querySelector('.popup__hobby');
 inputName.value = profileName.textContent;
 inputHobby.value = profileHobby.textContent;
 
-let buttonSubmit = document.querySelector('.button__submit');
+let buttonSubmit = document.querySelector('.popup__submit-btn');
 function handleFormSubmit(evt) {
     evt.preventDefault();
     inputName = document.querySelector('popup__name');
