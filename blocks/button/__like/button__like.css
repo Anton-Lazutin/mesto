@@ -1,3 +1,7 @@
 .button__like {
   all: unset;
+  background-image: url(../../../images/button__like.svg);
+  background-size: 100% 100%;
+  width: 22px;
+  height: 19px;
 }

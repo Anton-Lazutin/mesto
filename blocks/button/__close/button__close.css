@@ -1,0 +1,21 @@
+@media screen and (min-width: 320px) {
+  .button__close {
+    all: unset;
+    background-image: url(../../../images/button__cross.svg);
+    width: 20px;
+    height: 20px;
+    background-size: 100% 100%;
+    position: absolute;
+    top: -30px;
+    right: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .button__close {
+    width: 32px;
+    height: 32px;
+    top: -30px;
+    right: -30px;
+  }
+}

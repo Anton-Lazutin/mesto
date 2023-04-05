@@ -1,6 +1,11 @@
 @media screen and (min-width: 320px) {
   .button__add {
     all: unset;
+    background-image: url(../../../images/button__add.svg);
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    background-size: 100% 100%;
     margin: 32px 0 0;
     border: 2px solid white;
     padding: 10px 128px;

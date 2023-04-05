@@ -1,0 +1,22 @@
+@media screen and (min-width: 320px) {
+  .button__submit {
+    all: unset;
+    font-family: "Inter", Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    background-color: #000;
+    color: #fff;
+    padding: 14px 82px;
+    margin-top: 45px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .button__submit {
+    padding: 14px 125px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
