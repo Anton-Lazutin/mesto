@@ -18,3 +18,9 @@
     padding: 10px 60px;
   }
 }
+
+.button__add:hover {
+  opacity: 0.6;
+  transition: opacity 0.4s linear;
+  cursor: pointer;
+}

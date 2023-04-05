@@ -20,3 +20,9 @@
     line-height: 22px;
   }
 }
+
+.button__submit:hover {
+  opacity: 0.6;
+  transition: opacity 0.4s linear;
+  cursor: pointer;
+}
