@@ -1,5 +1,5 @@
 @media screen and (min-width: 320px) {
-  .card__add-btn {
+  .profile__add-btn {
     all: unset;
     background-image: url(../../../images/button__add.svg);
     background-repeat: no-repeat;
@@ -13,13 +13,13 @@
 }
 
 @media screen and (min-width: 768px) {
-  .card__add-btn {
+  .profile__add-btn {
     margin-left: 290px;
     padding: 10px 60px;
   }
 }
 
-.card__add-btn:hover {
+.profile__add-btn:hover {
   opacity: 0.6;
   transition: opacity 0.4s linear;
   cursor: pointer;

@@ -13,7 +13,7 @@
 @import url(../blocks/profile/__photo/profile__photo.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__hobby/profile__hobby.css);
-@import url(../blocks/card/__add-btn/card__add-btn.css);
+@import url(../blocks/profile/__add-btn/profile__add-btn.css);
 
 @import url(../blocks/photo-cards/photo-cards.css);
 @import url(../blocks/card/__like-btn/card__like-btn.css);
