@@ -1,16 +1,19 @@
-@media screen and (min-width: 320px) {
-  .profile__hobby {
-    margin: 7px 0 0;
-    font-family: "Inter", Arial, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-  }
+.profile__hobby {
+  margin: 7px 0 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 282px;
 }
 
 @media screen and (min-width: 768px) {
   .profile__hobby {
+    max-width: 336px;
     font-size: 18px;
     line-height: 22px;
   }

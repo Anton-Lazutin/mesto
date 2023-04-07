@@ -1,24 +1,13 @@
-@media screen and (min-width: 320px) {
-  .profile__add-btn {
-    all: unset;
-    background-image: url(../../../images/button__add.svg);
-    background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
-    background-size: 100% 100%;
-    margin: 32px 0 0;
-    border: 2px solid white;
-    padding: 10px 128px;
-  }
+.profile__add-btn {
+  all: unset;
+  margin: 31px 0 0;
 }
 
 @media screen and (min-width: 768px) {
   .profile__add-btn {
     margin-left: 290px;
-    padding: 10px 60px;
   }
 }
-
 .profile__add-btn:hover {
   opacity: 0.6;
   transition: opacity 0.4s linear;

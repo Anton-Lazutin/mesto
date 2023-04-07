@@ -1,25 +1,9 @@
-@media screen and (min-width: 320px) {
-  .profile__edit-btn {
-    all: unset;
-    background-image: url(../../../images/button__edit.svg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    width: 7.5px;
-    height: 7.5px;
-    border: 1px solid #fff;
-    padding: 5.25px 5.25px;
-    position: absolute;
-    left: 105%;
-    top: 42%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .profile__edit-btn  {
-    width: 9px;
-    height: 9px;
-    padding: 7px 7px;
-  }
+.profile__edit-btn {
+  all: unset;
+  position: absolute;
+  left: 105%;
+  top: 42%;
+  border-radius: 2px;
 }
 
 .profile__edit-btn:hover {
