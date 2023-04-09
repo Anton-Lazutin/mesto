@@ -2,6 +2,9 @@ let openButton = document.querySelector('.profile__edit-btn');
 let popup = document.querySelector('.popup');
 
 function openPopup() {
+    inputName.value = profileName.textContent;
+    inputHobby.value = profileHobby.textContent;
+
     popup.classList.add('popup_opened');
 }
 openButton.addEventListener('click', openPopup);
@@ -18,14 +21,14 @@ let profileHobby = document.querySelector('.profile__hobby');
 let inputName = document.querySelector('.popup__input_name');
 let inputHobby = document.querySelector('.popup__input_hobby');
 
-inputName.value = profileName.textContent;
-inputHobby.value = profileHobby.textContent;
+let formElement = document.querySelector('.popup__input-form');
 
 function handleFormSubmit(evt) {
     evt.preventDefault();
-    inputName = document.querySelector('popup__input_name');
+    inputName = document.querySelector('.popup__input_name');
     inputHobby = document.querySelector('.popup__input_hobby');
     profileName.textContent = inputName.value;
     profileHobby.textContent = inputHobby.value;
+    closePopup();
 }
 formElement.addEventListener('submit', handleFormSubmit);
