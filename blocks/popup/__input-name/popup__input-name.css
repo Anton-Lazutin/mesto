@@ -1,4 +1,4 @@
-.popup__input_hobby {
+.popup__input-name {
   all: unset;
   font-family: 'Inter', Arial, sans-serif;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -7,7 +7,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .popup__input_hobby {
+  .popup__input-name {
     width: 358px;
   }
 }
