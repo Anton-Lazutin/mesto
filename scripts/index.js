@@ -18,8 +18,8 @@ closeButton.addEventListener('click', closePopup);
 
 let profileName = document.querySelector('.profile__name');
 let profileHobby = document.querySelector('.profile__hobby');
-let inputName = document.querySelector('.popup__input_name');
-let inputHobby = document.querySelector('.popup__input_hobby');
+let inputName = document.querySelector('.popup__input_type_name');
+let inputHobby = document.querySelector('.popup__input_type_hobby');
 
 let formElement = document.querySelector('.popup__input-form');
 
