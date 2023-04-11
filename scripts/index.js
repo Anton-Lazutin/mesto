@@ -18,15 +18,13 @@ closeButton.addEventListener('click', closePopup);
 
 let profileName = document.querySelector('.profile__name');
 let profileHobby = document.querySelector('.profile__hobby');
-let inputName = document.querySelector('.popup__input-name');
-let inputHobby = document.querySelector('.popup__input-hobby');
+let inputName = document.querySelector('.popup__input-form_name');
+let inputHobby = document.querySelector('.popup__input-form_hobby');
 
 let formElement = document.querySelector('.popup__input-form');
 
 function handleFormSubmit(evt) {
     evt.preventDefault();
-    inputName = document.querySelector('.popup__input-name');
-    inputHobby = document.querySelector('.popup__input-hobby');
     profileName.textContent = inputName.value;
     profileHobby.textContent = inputHobby.value;
     closePopup();

@@ -9,12 +9,14 @@
   border-radius: 2px;
   color: #fff;
   padding: 14px 82px;
-  margin-top: 45px;
+  margin-top: 24px;
+  margin-bottom: 25px;
 }
 
 @media screen and (min-width: 768px) {
   .popup__submit-btn {
-    padding: 14px 125px;
+    padding: 14px 132px;
+    margin-bottom: 38px;
     font-size: 18px;
     line-height: 22px;
   }

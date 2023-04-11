@@ -1,13 +1,15 @@
 .profile__add-btn {
   all: unset;
-  margin: 31px 0 0;
+  margin: 32px 0 0;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .profile__add-btn {
-    margin-left: 290px;
+    justify-self: flex-end;
+    margin: 35px 0 0 287px;
   }
 }
+
 .profile__add-btn:hover {
   opacity: 0.6;
   transition: opacity 0.4s linear;
