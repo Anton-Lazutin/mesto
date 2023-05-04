@@ -46,6 +46,27 @@ function closeAddPopup() {
 }
 closeButton2.addEventListener('click', closeAddPopup);
 
+//add to array
+const addFormElement = document.querySelector(".popup__input-add-form");
+
+function addToArray(event) {
+  event.preventDefault();
+
+  const inputPlace = document.querySelector(".popup_add-form__input_type_place").value;
+  const inputLink = document.querySelector(".popup_add-form__input_type_link").value;
+
+  initialCards.push({name: inputPlace, link: inputLink});
+  document.querySelector(".popup_add-form__input_type_place").value = '';
+  document.querySelector(".popup_add-form__input_type_link").value = '';
+
+  const element = createCardsElement({name: inputPlace, link: inputLink});
+  photoCardsContainer.appendChild(element);
+
+  closeAddPopup();
+}
+
+addFormElement.addEventListener("submit", addToArray);
+
 //array of 6 cards
 const initialCards = [
   {
@@ -108,17 +129,6 @@ const createCardsElement = (initialCardsObj) => {
 
 initialCards.forEach((obj) => {
   const element = createCardsElement(obj);
-
   photoCardsContainer.appendChild(element);
 })
 
-
-const inputPlace = document.querySelector(".popup_add-form__input_type_place");
-const inputLink = document.querySelector(".popup_add-form__input_type_link");
-const addFormElement = document.querySelector(".popup__input-add-form");
-
-function addToArray() {
-  initialCards.push(inputPlace, inputLink);
-  closeAddPopup();
-}
-addToArray();
