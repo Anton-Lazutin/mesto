@@ -43,7 +43,7 @@
         <p class="footer__copyright">&copy;2023 Mesto Russia</p>
       </footer>
     </div>
-    <div class="popup">
+    <div class="popup popup_edit-form">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
         <form
@@ -56,15 +56,43 @@
             type="text"
             class="popup__input popup__input_type_name"
             name="popup__input_type_name"
+            placeholder="Введите имя"
           />
           <input
             type="text"
             class="popup__input popup__input_type_hobby"
             name="popup__input_type_hobby"
+            placeholder="Введите увлечение"
           />
           <button class="popup__submit-btn" type="submit">Сохранить</button>
         </form>
-        <button class="popup__close-btn" type="button"></button>
+        <button class="popup__close-btn close-btn_edit-form" type="button"></button>
+      </div>
+    </div>
+    <div class="popup popup_add-form">
+      <div class="popup__container">
+        <h2 class="popup__title">Новое место</h2>
+        <form
+          action="https://anton-lazutin.github.io/mesto/"
+          class="popup__input-form popup__input-add-form"
+          method="get"
+          name="popup__input-add-form"
+        >
+          <input
+            type="text"
+            class="popup__input popup_add-form__input_type_place"
+            name="popup_add-form__input_type_place"
+            placeholder="Введите название"
+          />
+          <input
+            type="text"
+            class="popup__input popup_add-form__input_type_link"
+            name="popup_add-form__input_type_link"
+            placeholder="Введите ссылку на картинку"
+          />
+          <button class="popup__submit-btn" type="submit">Сохранить</button>
+        </form>
+        <button class="popup__close-btn close-btn_add-form" type="button"></button>
       </div>
     </div>
     <template id="basic-cards">

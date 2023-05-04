@@ -1,27 +1,25 @@
-//open popup and changing name
-const openButton = document.querySelector(".profile__edit-btn");
-const popup = document.querySelector(".popup");
+//changing name
+const openButton = document.querySelector('.profile__edit-btn');
+const popup = document.querySelector('.popup_edit-form');
+const closeButton = document.querySelector('.close-btn_edit-form');
 
 function openPopup() {
   inputName.value = profileName.textContent;
   inputHobby.value = profileHobby.textContent;
 
-  popup.classList.add("popup_opened");
+  popup.classList.add('popup_opened');
 }
-openButton.addEventListener("click", openPopup);
-
-const closeButton = document.querySelector(".popup__close-btn");
+openButton.addEventListener('click', openPopup);
 
 function closePopup() {
-  popup.classList.remove("popup_opened");
+  popup.classList.remove('popup_opened');
 }
-closeButton.addEventListener("click", closePopup);
+closeButton.addEventListener('click', closePopup);
 
 const profileName = document.querySelector(".profile__name");
 const profileHobby = document.querySelector(".profile__hobby");
 const inputName = document.querySelector(".popup__input_type_name");
 const inputHobby = document.querySelector(".popup__input_type_hobby");
-
 const formElement = document.querySelector(".popup__input-form");
 
 function handleFormSubmit(evt) {
@@ -31,6 +29,22 @@ function handleFormSubmit(evt) {
   closePopup();
 }
 formElement.addEventListener("submit", handleFormSubmit);
+
+//add cards
+const addButton = document.querySelector('.profile__add-btn');
+const popupAdd = document.querySelector('.popup_add-form');
+const closeButton2 = document.querySelector('.close-btn_add-form');
+
+function openAddPopup() {
+  
+  popupAdd.classList.add('popup_opened');
+}
+addButton.addEventListener('click', openAddPopup);
+
+function closeAddPopup() {
+  popupAdd.classList.remove('popup_opened');
+}
+closeButton2.addEventListener('click', closeAddPopup);
 
 //array of 6 cards
 const initialCards = [
@@ -97,3 +111,14 @@ initialCards.forEach((obj) => {
 
   photoCardsContainer.appendChild(element);
 })
+
+
+const inputPlace = document.querySelector(".popup_add-form__input_type_place");
+const inputLink = document.querySelector(".popup_add-form__input_type_link");
+const addFormElement = document.querySelector(".popup__input-add-form");
+
+function addToArray() {
+  initialCards.push(inputPlace, inputLink);
+  closeAddPopup();
+}
+addToArray();
