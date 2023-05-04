@@ -1,7 +1,7 @@
 //changing name
 const openButton = document.querySelector('.profile__edit-btn');
 const popup = document.querySelector('.popup_edit-form');
-const closeButton = document.querySelector('.close-btn_edit-form');
+const closeButton = document.querySelector('.popup__close-btn_edit-form');
 
 function openPopup() {
   inputName.value = profileName.textContent;
@@ -33,7 +33,7 @@ formElement.addEventListener("submit", handleFormSubmit);
 //add cards
 const addButton = document.querySelector('.profile__add-btn');
 const popupAdd = document.querySelector('.popup_add-form');
-const closeButton2 = document.querySelector('.close-btn_add-form');
+const closeButton2 = document.querySelector('.popup__close-btn_add-form');
 
 function openAddPopup() {
   popupAdd.classList.add('popup_opened');
@@ -51,12 +51,12 @@ const addFormElement = document.querySelector(".popup__input-add-form");
 function addToArray(event) {
   event.preventDefault();
 
-  const inputPlace = document.querySelector(".popup_add-form__input_type_place").value;
-  const inputLink = document.querySelector(".popup_add-form__input_type_link").value;
+  const inputPlace = document.querySelector(".popup__input_type_place").value;
+  const inputLink = document.querySelector(".popup__input_type_link").value;
 
   initialCards.push({name: inputPlace, link: inputLink});
-  document.querySelector(".popup_add-form__input_type_place").value = '';
-  document.querySelector(".popup_add-form__input_type_link").value = '';
+  document.querySelector(".popup__input_type_place").value = '';
+  document.querySelector(".popup__input_type_link").value = '';
 
   const element = createCardsElement({name: inputPlace, link: inputLink});
   photoCardsContainer.insertAdjacentElement('afterbegin', element);
@@ -138,7 +138,7 @@ initialCards.forEach((obj) => {
 
 //popup big photo
 const popupPhoto = document.querySelector('.popup_photo');
-const closeButton3 = document.querySelector('.close-btn_photo');
+const closeButton3 = document.querySelector('.popup__close-btn_photo');
 
 function openPhotoPopup(el) {
   const popupBigPhoto = document.querySelector('.popup__big-photo');
