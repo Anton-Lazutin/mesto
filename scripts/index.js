@@ -36,7 +36,6 @@ const popupAdd = document.querySelector('.popup_add-form');
 const closeButton2 = document.querySelector('.close-btn_add-form');
 
 function openAddPopup() {
-  
   popupAdd.classList.add('popup_opened');
 }
 addButton.addEventListener('click', openAddPopup);
@@ -60,7 +59,7 @@ function addToArray(event) {
   document.querySelector(".popup_add-form__input_type_link").value = '';
 
   const element = createCardsElement({name: inputPlace, link: inputLink});
-  photoCardsContainer.appendChild(element);
+  photoCardsContainer.insertAdjacentElement('afterbegin', element);
 
   closeAddPopup();
 }
@@ -107,9 +106,10 @@ const createCardsElement = (initialCardsObj) => {
   const cardDeleteButton = cardElement.querySelector('.card__dlt-btn');
   const cardLikeButton = cardElement.querySelector('.card__like-btn');
   
-  //add cards
+  //set cards data
   cardTitle.textContent = initialCardsObj.name;
-  cardPic.src = initialCardsObj.link; 
+  cardPic.src = initialCardsObj.link;
+  cardPic.alt = initialCardsObj.name;  
   
   //delete button
   const handleDelete = () => {
@@ -120,6 +120,10 @@ const createCardsElement = (initialCardsObj) => {
   const handleLike = () => {
     cardLikeButton.classList.toggle('card__like-btn_active');
   }
+
+  cardPic.addEventListener('click', () => {
+    openPhotoPopup(initialCardsObj);
+  });
 
   cardDeleteButton.addEventListener('click', handleDelete);
   cardLikeButton.addEventListener('click', handleLike);
@@ -132,3 +136,22 @@ initialCards.forEach((obj) => {
   photoCardsContainer.appendChild(element);
 })
 
+//popup big photo
+const popupPhoto = document.querySelector('.popup_photo');
+const closeButton3 = document.querySelector('.close-btn_photo');
+
+function openPhotoPopup(el) {
+  const popupBigPhoto = document.querySelector('.popup__big-photo');
+  const popupSubtitle = document.querySelector('.popup__subtitle');
+  
+  // Set photo and title
+  popupSubtitle.textContent = el.name;
+  popupBigPhoto.src = el.link; 
+
+  popupPhoto.classList.add('popup_opened');
+}
+
+function closePhotoPopup() {
+  popupPhoto.classList.remove('popup_opened');
+}
+closeButton3.addEventListener('click', closePhotoPopup);
