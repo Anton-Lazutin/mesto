@@ -1,20 +1,23 @@
 //changing name
-const openButton = document.querySelector('.profile__edit-btn');
-const popup = document.querySelector('.popup_edit-form');
-const closeButton = document.querySelector('.popup__close-btn_edit-form');
+const openButtonEditForm = document.querySelector('.profile__edit-btn');
+const popupEditForm = document.querySelector('.popup_edit-form');
+const closeButtonEditForm = document.querySelector('.popup__close-btn_edit-form');
 
-function openPopup() {
+function openPopup(popupEditForm) {
+  popupEditForm.classList.add('popup_opened');
+}
+
+function closePopup(popupEditForm) {
+  popupEditForm.classList.remove('popup_opened');
+}
+
+openButtonEditForm.addEventListener('click', () => {
   inputName.value = profileName.textContent;
   inputHobby.value = profileHobby.textContent;
+  openPopup(popupEditForm);
+});
 
-  popup.classList.add('popup_opened');
-}
-openButton.addEventListener('click', openPopup);
-
-function closePopup() {
-  popup.classList.remove('popup_opened');
-}
-closeButton.addEventListener('click', closePopup);
+closeButtonEditForm.addEventListener('click', () => closePopup(popupEditForm));
 
 const profileName = document.querySelector(".profile__name");
 const profileHobby = document.querySelector(".profile__hobby");
@@ -26,42 +29,36 @@ function handleFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = inputName.value;
   profileHobby.textContent = inputHobby.value;
-  closePopup();
+  closePopup(popupEditForm);
 }
 formElement.addEventListener("submit", handleFormSubmit);
 
 //add cards
-const addButton = document.querySelector('.profile__add-btn');
-const popupAdd = document.querySelector('.popup_add-form');
-const closeButton2 = document.querySelector('.popup__close-btn_add-form');
+const openButtonAddForm = document.querySelector('.profile__add-btn');
+const popupAddForm = document.querySelector('.popup_add-form');
+const closeButtonAddForm = document.querySelector('.popup__close-btn_add-form');
 
-function openAddPopup() {
-  popupAdd.classList.add('popup_opened');
-}
-addButton.addEventListener('click', openAddPopup);
-
-function closeAddPopup() {
-  popupAdd.classList.remove('popup_opened');
-}
-closeButton2.addEventListener('click', closeAddPopup);
+openButtonAddForm.addEventListener('click',  () => openPopup(popupAddForm));
+closeButtonAddForm.addEventListener('click', () => closePopup(popupAddForm));
 
 //add to array
 const addFormElement = document.querySelector(".popup__input-add-form");
+const inputPlaceElement = document.querySelector(".popup__input_type_place");
+const inputLinkElement = document.querySelector(".popup__input_type_link");
 
 function addToArray(event) {
   event.preventDefault();
 
-  const inputPlace = document.querySelector(".popup__input_type_place").value;
-  const inputLink = document.querySelector(".popup__input_type_link").value;
+  const inputPlace = inputPlaceElement.value;
+  const inputLink = inputLinkElement.value;
 
-  initialCards.push({name: inputPlace, link: inputLink});
-  document.querySelector(".popup__input_type_place").value = '';
-  document.querySelector(".popup__input_type_link").value = '';
+  inputPlaceElement.value = '';
+  inputLinkElement.value = '';
 
   const element = createCardsElement({name: inputPlace, link: inputLink});
   photoCardsContainer.insertAdjacentElement('afterbegin', element);
 
-  closeAddPopup();
+  closePopup(popupAddForm);
 }
 
 addFormElement.addEventListener("submit", addToArray);
@@ -96,7 +93,6 @@ const initialCards = [
 
 const basicCards = document.getElementById('basic-cards');
 const photoCardsContainer = document.querySelector('.photo-cards');
-
 
 const createCardsElement = (initialCardsObj) => {
   const cardElement = basicCards.content.querySelector('.card').cloneNode(true);
@@ -134,24 +130,21 @@ const createCardsElement = (initialCardsObj) => {
 initialCards.forEach((obj) => {
   const element = createCardsElement(obj);
   photoCardsContainer.appendChild(element);
-})
+});
 
 //popup big photo
 const popupPhoto = document.querySelector('.popup_photo');
-const closeButton3 = document.querySelector('.popup__close-btn_photo');
+const closeButtonPhoto = document.querySelector('.popup__close-btn_photo');
+const popupBigPhoto = document.querySelector('.popup__big-photo');
+const popupSubtitle = document.querySelector('.popup__subtitle');
 
 function openPhotoPopup(el) {
-  const popupBigPhoto = document.querySelector('.popup__big-photo');
-  const popupSubtitle = document.querySelector('.popup__subtitle');
-  
   // Set photo and title
   popupSubtitle.textContent = el.name;
-  popupBigPhoto.src = el.link; 
+  popupBigPhoto.src = el.link;
+  popupBigPhoto.alt = el.name;
 
-  popupPhoto.classList.add('popup_opened');
+  openPopup(popupPhoto);
 }
 
-function closePhotoPopup() {
-  popupPhoto.classList.remove('popup_opened');
-}
-closeButton3.addEventListener('click', closePhotoPopup);
+closeButtonPhoto.addEventListener('click', () => closePopup(popupPhoto));
