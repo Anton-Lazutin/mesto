@@ -1,23 +1,23 @@
 //changing name
 const openButtonEditForm = document.querySelector('.profile__edit-btn');
-const popupEditForm = document.querySelector('.popup_edit-form');
+const popup = document.querySelector('.popup_edit-form');
 const closeButtonEditForm = document.querySelector('.popup__close-btn_edit-form');
 
 function openPopup(popupEditForm) {
   popupEditForm.classList.add('popup_opened');
 }
 
-function closePopup(popupEditForm) {
-  popupEditForm.classList.remove('popup_opened');
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
 }
 
 openButtonEditForm.addEventListener('click', () => {
   inputName.value = profileName.textContent;
   inputHobby.value = profileHobby.textContent;
-  openPopup(popupEditForm);
+  openPopup(popup);
 });
 
-closeButtonEditForm.addEventListener('click', () => closePopup(popupEditForm));
+closeButtonEditForm.addEventListener('click', () => closePopup(popup));
 
 const profileName = document.querySelector(".profile__name");
 const profileHobby = document.querySelector(".profile__hobby");
@@ -25,13 +25,13 @@ const inputName = document.querySelector(".popup__input_type_name");
 const inputHobby = document.querySelector(".popup__input_type_hobby");
 const formElement = document.querySelector(".popup__input-form");
 
-function handleFormSubmit(evt) {
+function submitEditProfileForm(evt) {
   evt.preventDefault();
   profileName.textContent = inputName.value;
   profileHobby.textContent = inputHobby.value;
-  closePopup(popupEditForm);
+  closePopup(popup);
 }
-formElement.addEventListener("submit", handleFormSubmit);
+formElement.addEventListener("submit", submitEditProfileForm);
 
 //add cards
 const openButtonAddForm = document.querySelector('.profile__add-btn');
@@ -42,11 +42,11 @@ openButtonAddForm.addEventListener('click',  () => openPopup(popupAddForm));
 closeButtonAddForm.addEventListener('click', () => closePopup(popupAddForm));
 
 //add to array
-const addFormElement = document.querySelector(".popup__input-add-form");
+const  formAddCard = document.querySelector(".popup__input-add-form");
 const inputPlaceElement = document.querySelector(".popup__input_type_place");
 const inputLinkElement = document.querySelector(".popup__input_type_link");
 
-function addToArray(event) {
+function submitAddCardForm(event) {
   event.preventDefault();
 
   const inputPlace = inputPlaceElement.value;
@@ -61,7 +61,7 @@ function addToArray(event) {
   closePopup(popupAddForm);
 }
 
-addFormElement.addEventListener("submit", addToArray);
+formAddCard.addEventListener("submit", submitAddCardForm);
 
 //array of 6 cards
 const initialCards = [
@@ -127,16 +127,16 @@ const createCardsElement = (initialCardsObj) => {
   return cardElement;
 }
 
-initialCards.forEach((obj) => {
-  const element = createCardsElement(obj);
+initialCards.forEach((cardData) => {
+  const element = createCardsElement(cardData);
   photoCardsContainer.appendChild(element);
 });
 
 //popup big photo
 const popupPhoto = document.querySelector('.popup_photo');
-const closeButtonPhoto = document.querySelector('.popup__close-btn_photo');
-const popupBigPhoto = document.querySelector('.popup__big-photo');
-const popupSubtitle = document.querySelector('.popup__subtitle');
+const buttonClosePopupPhoto = document.querySelector('.popup__close-btn_photo');
+const popupBigPhoto = popupPhoto.querySelector('.popup__big-photo');
+const popupSubtitle = popupPhoto.querySelector('.popup__subtitle');
 
 function openPhotoPopup(el) {
   // Set photo and title
@@ -147,4 +147,4 @@ function openPhotoPopup(el) {
   openPopup(popupPhoto);
 }
 
-closeButtonPhoto.addEventListener('click', () => closePopup(popupPhoto));
+buttonClosePopupPhoto.addEventListener('click', () => closePopup(popupPhoto));
