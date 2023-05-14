@@ -1,41 +1,72 @@
-//changing name
 const openButtonEditForm = document.querySelector('.profile__edit-btn');
-const popup = document.querySelector('.popup_edit-form');
+const popupEditForm = document.querySelector('.popup_edit-form');
 const closeButtonEditForm = document.querySelector('.popup__close-btn_edit-form');
+const inputName = document.querySelector(".popup__input_type_name");
+const inputHobby = document.querySelector(".popup__input_type_hobby");
 
 function openPopup(popupEditForm) {
   popupEditForm.classList.add('popup_opened');
 }
 
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
+function closePopup(popupEditForm) {
+  popupEditForm.classList.remove('popup_opened');
 }
 
 openButtonEditForm.addEventListener('click', () => {
+  const profileName = document.querySelector('.profile__name');
+  const profileHobby = document.querySelector('.profile__hobby');
   inputName.value = profileName.textContent;
   inputHobby.value = profileHobby.textContent;
-  openPopup(popup);
+  openPopup(popupEditForm);
 });
 
-closeButtonEditForm.addEventListener('click', () => closePopup(popup));
+closeButtonEditForm.addEventListener('click', () => closePopup(popupEditForm));
+
+//escape closing
+function closePopupEscape(evt) {
+  if (evt.key === 'Escape') {
+    const popupOpened = document.querySelector('.popup_opened');
+    if (popupOpened) {
+      closePopup(popupOpened);
+    }
+  }
+}
+document.addEventListener('keydown', closePopupEscape);
+
+//overlay closing
+function closePopupOverlay(popup, overlayClass, closeButtonClass, evt) {
+  const isOverlay = evt.target.classList.contains(overlayClass);
+  const isButtonClose = evt.target.classList.contains(closeButtonClass);
+  const isElement = evt.target instanceof Element;
+  if (isOverlay || isButtonClose || !isElement) {
+    closePopup(popup);
+  }
+}
+
+popupEditForm.addEventListener('click', function(evt) {
+  closePopupOverlay(popupEditForm, 'popup_edit-form', 'popup__close-btn_edit-form', evt);
+});
+
+const popupAddForm = document.querySelector('.popup_add-form');
+popupAddForm.addEventListener('click', function(evt) {
+  closePopupOverlay(popupAddForm, 'popup_add-form', 'popup_close-btn_add-form', evt);
+});
 
 const profileName = document.querySelector(".profile__name");
 const profileHobby = document.querySelector(".profile__hobby");
-const inputName = document.querySelector(".popup__input_type_name");
-const inputHobby = document.querySelector(".popup__input_type_hobby");
 const formElement = document.querySelector(".popup__input-form");
 
+//changing name
 function submitEditProfileForm(evt) {
   evt.preventDefault();
   profileName.textContent = inputName.value;
   profileHobby.textContent = inputHobby.value;
-  closePopup(popup);
+  closePopup(popupEditForm);
 }
 formElement.addEventListener("submit", submitEditProfileForm);
 
 //add cards
 const openButtonAddForm = document.querySelector('.profile__add-btn');
-const popupAddForm = document.querySelector('.popup_add-form');
 const closeButtonAddForm = document.querySelector('.popup__close-btn_add-form');
 
 openButtonAddForm.addEventListener('click',  () => openPopup(popupAddForm));
@@ -148,3 +179,7 @@ function openPhotoPopup(el) {
 }
 
 buttonClosePopupPhoto.addEventListener('click', () => closePopup(popupPhoto));
+
+popupPhoto.addEventListener('click', function(evt) {
+  closePopupOverlay(popupPhoto, 'popup_photo', 'popup_close-btn_photo', evt);
+});

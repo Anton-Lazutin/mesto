@@ -27,17 +27,24 @@
             <div class="profile__title">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
               <button class="profile__edit-btn" type="button">
-                <img class="profile__edit-btn-pic" src="./images/button__edit.svg" alt="кнопка редактирования"/>
+                <img
+                  class="profile__edit-btn-pic"
+                  src="./images/button__edit.svg"
+                  alt="кнопка редактирования"
+                />
               </button>
             </div>
             <p class="profile__hobby">Иcследователь океана</p>
           </div>
           <button class="profile__add-btn" type="button">
             <img
-              class="profile__add-btn-pic" src="./images/button__add.svg" alt="кнопка добавить"/>
+              class="profile__add-btn-pic"
+              src="./images/button__add.svg"
+              alt="кнопка добавить"
+            />
           </button>
         </section>
-        <section class="photo-cards"></section> 
+        <section class="photo-cards"></section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">&copy;2023 Mesto Russia</p>
@@ -46,53 +53,71 @@
     <div class="popup popup_edit-form">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form
-          action="https://anton-lazutin.github.io/mesto/"
-          class="popup__input-form"
-          method="get"
-          name="popup__input-form"
-        >
+        <form class="popup__input-form" name="popup__input-form" novalidate>
+            <input
+              type="text"
+              required
+              minlength="2"
+              maxlength="40"
+              class="popup__input popup__input_type_name"
+              name="popup__input_type_name"
+              placeholder="Введите имя"
+              id="name"
+            />
+            <span id="error-name" class="error-message"></span>
           <input
             type="text"
-            class="popup__input popup__input_type_name"
-            name="popup__input_type_name"
-            placeholder="Введите имя"
-          />
-          <input
-            type="text"
+            required
+            minlength="2"
+            maxlength="200"
             class="popup__input popup__input_type_hobby"
             name="popup__input_type_hobby"
-            placeholder="Введите увлечение"
+            placeholder="О себе"
+            id="hobby"
           />
+          <span id="error-hobby" class="error-message"></span>
           <button class="popup__submit-btn" type="submit">Сохранить</button>
         </form>
-        <button class="popup__close-btn popup__close-btn_edit-form" type="button"></button>
+        <button
+          class="popup__close-btn popup__close-btn_edit-form"
+          type="button"
+        ></button>
       </div>
     </div>
     <div class="popup popup_add-form">
       <div class="popup__container">
         <h2 class="popup__title">Новое место</h2>
         <form
-          action="https://anton-lazutin.github.io/mesto/"
           class="popup__input-form popup__input-add-form"
-          method="get"
           name="popup__input-add-form"
+          novalidate
         >
           <input
             type="text"
+            required
+            minlength="2"
+            maxlength="30"
             class="popup__input popup__input_type_place"
             name="popup_add-form__input_type_place"
             placeholder="Введите название"
+            id="place"
           />
+          <span id="error-place" class="error-message"></span>
           <input
-            type="text"
+            type="url"
+            required
             class="popup__input popup__input_type_link"
             name="popup_add-form__input_type_link"
             placeholder="Введите ссылку на картинку"
+            id="url"
           />
+          <span id="error-url" class="error-message"></span>
           <button class="popup__submit-btn" type="submit">Создать</button>
         </form>
-        <button class="popup__close-btn popup__close-btn_add-form" type="button"></button>
+        <button
+          class="popup__close-btn popup__close-btn_add-form"
+          type="button"
+        ></button>
       </div>
     </div>
     <template id="basic-cards">
@@ -107,11 +132,15 @@
     </template>
     <section class="popup popup_photo">
       <div class="popup__wrapper">
-        <img class="popup__big-photo">
+        <img class="popup__big-photo" />
         <p class="popup__subtitle"></p>
-        <button class="popup__close-btn popup__close-btn_photo" type="button"></button>
+        <button
+          class="popup__close-btn popup__close-btn_photo"
+          type="button"
+        ></button>
       </div>
     </section>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>
