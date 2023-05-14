@@ -64,7 +64,7 @@
               placeholder="Введите имя"
               id="name"
             />
-            <span id="error-name" class="error-message"></span>
+            <span id="error-name" class="popup__error-message"></span>
           <input
             type="text"
             required
@@ -75,7 +75,7 @@
             placeholder="О себе"
             id="hobby"
           />
-          <span id="error-hobby" class="error-message"></span>
+          <span id="error-hobby" class="popup__error-message"></span>
           <button class="popup__submit-btn" type="submit">Сохранить</button>
         </form>
         <button
@@ -87,11 +87,7 @@
     <div class="popup popup_add-form">
       <div class="popup__container">
         <h2 class="popup__title">Новое место</h2>
-        <form
-          class="popup__input-form popup__input-add-form"
-          name="popup__input-add-form"
-          novalidate
-        >
+        <form class="popup__input-form popup__input-add-form" name="popup__input-add-form" novalidate>
           <input
             type="text"
             required
@@ -102,7 +98,7 @@
             placeholder="Введите название"
             id="place"
           />
-          <span id="error-place" class="error-message"></span>
+          <span id="error-place" class="popup__error-message"></span>
           <input
             type="url"
             required
@@ -111,7 +107,7 @@
             placeholder="Введите ссылку на картинку"
             id="url"
           />
-          <span id="error-url" class="error-message"></span>
+          <span id="error-url" class="popup__error-message"></span>
           <button class="popup__submit-btn" type="submit">Создать</button>
         </form>
         <button
