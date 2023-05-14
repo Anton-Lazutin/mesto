@@ -6,6 +6,7 @@ const inputHobby = document.querySelector(".popup__input_type_hobby");
 
 function openPopup(popupEditForm) {
   popupEditForm.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEscape);
 }
 
 function closePopup(popupEditForm) {
@@ -31,7 +32,6 @@ function closePopupEscape(evt) {
     }
   }
 }
-document.addEventListener('keydown', closePopupEscape);
 
 //overlay closing
 function closePopupOverlay(popup, overlayClass, closeButtonClass, evt) {
@@ -54,7 +54,7 @@ popupAddForm.addEventListener('click', function(evt) {
 
 const profileName = document.querySelector(".profile__name");
 const profileHobby = document.querySelector(".profile__hobby");
-const formElement = document.querySelector(".popup__input-form");
+const formEditProfile = document.querySelector(".popup__input-form");
 
 //changing name
 function submitEditProfileForm(evt) {
@@ -63,7 +63,7 @@ function submitEditProfileForm(evt) {
   profileHobby.textContent = inputHobby.value;
   closePopup(popupEditForm);
 }
-formElement.addEventListener("submit", submitEditProfileForm);
+formEditProfile.addEventListener("submit", submitEditProfileForm);
 
 //add cards
 const openButtonAddForm = document.querySelector('.profile__add-btn');
