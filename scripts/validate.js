@@ -1,4 +1,4 @@
-const enableValidation = {
+const validationConfig = {
     formSelector: '.popup__input-form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__submit-btn',
@@ -7,7 +7,7 @@ const enableValidation = {
     errorClass: 'popup__error-message'
   }; 
 
-const checkValidation = ({formSelector, ...rest}) => {
+const enableValidation = ({formSelector, ...rest}) => {
     const inputForms = Array.from(document.querySelectorAll(formSelector));
     inputForms.forEach(popupInputForm => {
         popupInputForm.addEventListener('submit', (evt) => {
@@ -57,4 +57,4 @@ const disableButton = (button, {submitButtonSelector, inactiveButtonClass}) => {
   button.setAttribute('disabled', true);
 };
 
-checkValidation(enableValidation);
+enableValidation(validationConfig);

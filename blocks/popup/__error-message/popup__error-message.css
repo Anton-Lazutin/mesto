@@ -2,10 +2,10 @@
     all: unset;
     font-family: "Inter", Arial, sans-serif;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 12px;
+    line-height: 15px;
     width: 238px;
-    margin: 0;
+    margin-top: 5px;
     color: red;
 }
 
