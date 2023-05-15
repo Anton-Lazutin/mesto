@@ -20,6 +20,7 @@ const enableValidation = ({formSelector, ...rest}) => {
 const setEventListeners = (popupInputForm, {inputSelector, submitButtonSelector, ...rest}) => {
   const popupInputs = Array.from(popupInputForm.querySelectorAll(inputSelector));
   const submitButton = popupInputForm.querySelector(submitButtonSelector);
+  disableButton(submitButton, rest);
   popupInputs.forEach((input) => {
     input.addEventListener('input', () => {
       checkInputValidity(input);
