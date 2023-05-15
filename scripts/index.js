@@ -70,10 +70,7 @@ formEditProfile.addEventListener("submit", submitEditProfileForm);
 const openButtonAddForm = document.querySelector('.profile__add-btn');
 const closeButtonAddForm = document.querySelector('.popup__close-btn_add-form');
 
-openButtonAddForm.addEventListener('click',  (event) => {
-  openPopup(popupAddForm)
-  
-});
+openButtonAddForm.addEventListener('click',  () => openPopup(popupAddForm));
 closeButtonAddForm.addEventListener('click', () => closePopup(popupAddForm));
 
 //add to array
