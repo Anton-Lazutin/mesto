@@ -1,11 +1,5 @@
-const validationConfig = {
-  formSelector: '.popup__input-form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit-btn',
-  inactiveButtonClass: 'popup__submit-btn_invalid',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error-message'
-};
+import validationConfig from './constants.js';
+import forms from './index.js';
 
 class FormValidator {
   constructor(config, formElement) {
@@ -16,14 +10,14 @@ class FormValidator {
   }
 
   _showInputError(inputElement) {
-    const errorElement = this._formElement.querySelector(`error-#${inputElement.id}`);
+    const errorElement = this._formElement.querySelector(`#error-${inputElement.id}`);
     inputElement.classList.add(this._config.inputErrorClass);
     errorElement.textContent = inputElement.validationMessage;
     errorElement.classList.add(this._config.errorClass);
   }
 
   _hideInputError(inputElement) {
-    const errorElement = this._formElement.querySelector(`error-#${inputElement.id}`);
+    const errorElement = this._formElement.querySelector(`#error-${inputElement.id}`);
     inputElement.classList.remove(this._config.inputErrorClass);
     errorElement.textContent = '';
     errorElement.classList.remove(this._config.errorClass);
@@ -70,9 +64,4 @@ class FormValidator {
   }
 }
 
-const forms = Array.from(document.querySelectorAll(validationConfig.formSelector));
-
-forms.forEach((formElement) => {
-  const formValidator = new FormValidator(validationConfig, formElement);
-  formValidator.enableValidation();
-});
+export default FormValidator;

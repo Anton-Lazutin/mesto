@@ -5,8 +5,8 @@
     font-size: 12px;
     line-height: 15px;
     width: 238px;
-    height: 40px;
-    margin-top: 5px;
+    min-height: 30px;
+    margin: 5px 0 5px;
     color: red;
 }
 
@@ -14,4 +14,8 @@
     .popup__error-message {
       width: 358px;
     }
+  }
+
+  .popup__error-message:last-of-type {
+    margin-bottom: 20px;
   }

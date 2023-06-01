@@ -53,7 +53,7 @@
     <div class="popup popup_edit-form">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__input-form" name="popup__input-form" novalidate>
+        <form class="popup__input-form" name="edit-form" novalidate>
             <input
               type="text"
               required
@@ -87,7 +87,7 @@
     <div class="popup popup_add-form">
       <div class="popup__container">
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__input-form popup__input-add-form" name="popup__input-add-form" novalidate>
+        <form class="popup__input-form popup__input-add-form" name="add-form" novalidate>
           <input
             type="text"
             required
@@ -136,7 +136,7 @@
         ></button>
       </div>
     </section>
-    <script src="./scripts/validate.js"></script>
+    <script type="module" src="./scripts/FormValidator.js"></script>
     <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
