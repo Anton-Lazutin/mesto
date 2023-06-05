@@ -1,4 +1,4 @@
-import initialCards from './constants.js';
+import { initialCards } from './constants.js';
 import validationConfig from './constants.js';
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
@@ -65,7 +65,7 @@ function submitEditProfileForm(evt) {
 }
 
 function createCardsElement(data) {
-  const card = new Card(data, selectorTemplate);
+  const card = new Card(data, selectorTemplate, openPhotoPopup);
   const cardElement = card.generateCard();
   return cardElement;
 }
@@ -79,15 +79,13 @@ function submitAddCardForm(event) {
   const element = createCardsElement({name: inputPlace, link: inputLink});
   photoCardsContainer.prepend(element);
   event.target.reset();
-  event.submitter.classList.add('popup__submit-btn_invalid');
-  event.submitter.disabled = true;
+  validators['popup__submit-btn_invalid'].toggleButtonState();
 
   closePopup(popupAddForm);
 }
 
-initialCards.forEach((cardData) => {
-  const card = new Card(cardData, selectorTemplate, openPhotoPopup);
-  const cardElement = card.generateCard();
+initialCards.forEach((data) => {
+  createCardsElement(data);
   photoCardsContainer.appendChild(cardElement);
 });
 

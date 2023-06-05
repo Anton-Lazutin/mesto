@@ -1,5 +1,4 @@
-import validationConfig from './constants.js';
-import forms from './index.js';
+const validators = {};
 
 class FormValidator {
   constructor(config, formElement) {
@@ -31,7 +30,7 @@ class FormValidator {
     }
   }
 
-  _toggleButtonState() {
+  toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._submitButton.classList.add(this._config.inactiveButtonClass);
       this._submitButton.setAttribute('disabled', true);
@@ -63,5 +62,9 @@ class FormValidator {
     this._toggleButtonState();
   }
 }
+
+const formValidator = new FormValidator(config, formElement);
+formValidator.enableValidation();
+validators[formElement.getAttribute('disabled')] = formValidator;
 
 export default FormValidator;
