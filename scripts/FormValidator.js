@@ -1,5 +1,3 @@
-const validators = {};
-
 class FormValidator {
   constructor(config, formElement) {
     this._config = config;
@@ -48,7 +46,7 @@ class FormValidator {
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
-        this._toggleButtonState();
+        this.toggleButtonState();
       });
     });
   }
@@ -59,12 +57,8 @@ class FormValidator {
     });
 
     this._setEventListeners();
-    this._toggleButtonState();
+    this.toggleButtonState();
   }
 }
-
-const formValidator = new FormValidator(config, formElement);
-formValidator.enableValidation();
-validators[formElement.getAttribute('disabled')] = formValidator;
 
 export default FormValidator;

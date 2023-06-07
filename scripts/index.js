@@ -1,5 +1,4 @@
-import { initialCards } from './constants.js';
-import validationConfig from './constants.js';
+import { initialCards, validationConfig } from './constants.js';
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
 
@@ -11,7 +10,6 @@ const inputName = document.querySelector('.popup__input_type_name');
 const inputHobby = document.querySelector('.popup__input_type_hobby');
 const profileName = document.querySelector('.profile__name');
 const profileHobby = document.querySelector('.profile__hobby');
-const formEditProfile = document.querySelector('.popup__input-form');
 const openButtonAddForm = document.querySelector('.profile__add-btn');
 const closeButtonAddForm = document.querySelector('.popup__close-btn_add-form');
 
@@ -20,11 +18,11 @@ const popupPhoto = document.querySelector('.popup_photo');
 const buttonClosePopupPhoto = document.querySelector('.popup__close-btn_photo');
 const popupBigPhoto = popupPhoto.querySelector('.popup__big-photo');
 const popupSubtitle = popupPhoto.querySelector('.popup__subtitle');
-const formAddCard = document.querySelector('.popup__input-add-form');
 const inputPlaceElement = document.querySelector('.popup__input_type_place');
 const inputLinkElement = document.querySelector('.popup__input_type_link');
 
-const selectorTemplate = '#basic-cards';
+const formEditPopup = document.forms['edit-form'];
+const formAddPopup = document.forms['add-form'];
 
 //opening by button
 function openPopup(popup) {
@@ -61,13 +59,13 @@ function submitEditProfileForm(evt) {
   evt.preventDefault();
   profileName.textContent = inputName.value;
   profileHobby.textContent = inputHobby.value;
+  editFormValidator.toggleButtonState();
   closePopup(popupEditForm);
 }
 
 function createCardsElement(data) {
-  const card = new Card(data, selectorTemplate, openPhotoPopup);
-  const cardElement = card.generateCard();
-  return cardElement;
+  const card = new Card(data, '#basic-cards', openPhotoPopup);
+  return card.generateCard();;
 }
 
 //add to array
@@ -79,13 +77,13 @@ function submitAddCardForm(event) {
   const element = createCardsElement({name: inputPlace, link: inputLink});
   photoCardsContainer.prepend(element);
   event.target.reset();
-  validators['popup__submit-btn_invalid'].toggleButtonState();
+  addFormValidator.toggleButtonState();
 
   closePopup(popupAddForm);
 }
 
 initialCards.forEach((data) => {
-  createCardsElement(data);
+  const cardElement = createCardsElement(data);
   photoCardsContainer.appendChild(cardElement);
 });
 
@@ -109,18 +107,16 @@ popupEditForm.addEventListener('click', closePopupOverlay);
 popupAddForm.addEventListener('click', closePopupOverlay);
 popupPhoto.addEventListener('click', closePopupOverlay);
 
-formEditProfile.addEventListener("submit", submitEditProfileForm);
-formAddCard.addEventListener("submit", submitAddCardForm);
+formEditPopup.addEventListener("submit", submitEditProfileForm);
+formAddPopup.addEventListener("submit", submitAddCardForm);
 
 openButtonAddForm.addEventListener('click',  () => openPopup(popupAddForm));
 closeButtonAddForm.addEventListener('click', () => closePopup(popupAddForm));
 
 buttonClosePopupPhoto.addEventListener('click', () => closePopup(popupPhoto));
 
-const forms = Array.from(document.querySelectorAll(validationConfig.formSelector));
-forms.forEach((formElement) => {
-  const formValidator = new FormValidator(validationConfig, formElement);
-  formValidator.enableValidation();
-});
+  const addFormValidator = new FormValidator( validationConfig, formAddPopup);
+  addFormValidator.enableValidation();
 
-export default forms;
+  const editFormValidator = new FormValidator( validationConfig, formEditPopup);
+  editFormValidator.enableValidation();

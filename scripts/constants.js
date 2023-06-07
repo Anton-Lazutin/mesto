@@ -34,4 +34,4 @@ const validationConfig = {
   errorClass: 'popup__error-message'
 };
 
-export default {initialCards, validationConfig};
+export {initialCards, validationConfig};
