@@ -2,6 +2,9 @@ import { initialCards, validationConfig } from './constants.js';
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
 
+// Павел, доброго вермени суток, извините за прошлые итерации, что довел вас, я не со зла,
+// просто это ООП сложнее дается мне, чем то, что было до этого
+
 const openButtonEditForm = document.querySelector('.profile__edit-btn');
 const closeButtonEditForm = document.querySelector('.popup__close-btn_edit-form');
 const popupEditForm = document.querySelector('.popup_edit-form');
