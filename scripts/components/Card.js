@@ -42,8 +42,8 @@ class Card {
     this._cardLikeButton = this._element.querySelector('.card__like-btn');
     const cardTitle = this._element.querySelector('.card__title');
     this._cardPic.src = this._data.link;
-    this._cardPic.alt = this._data.name;
-    cardTitle.textContent = this._data.name;
+    this._cardPic.alt = this._data.place;
+    cardTitle.textContent = this._data.place;
     this._setEventListeners(this._element);
     return this._element;
   }

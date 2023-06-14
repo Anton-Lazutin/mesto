@@ -60,7 +60,7 @@
               minlength="2"
               maxlength="40"
               class="popup__input popup__input_type_name"
-              name="popup__input_type_name"
+              name="username"
               placeholder="Введите имя"
               id="name"
             />
@@ -71,7 +71,7 @@
             minlength="2"
             maxlength="200"
             class="popup__input popup__input_type_hobby"
-            name="popup__input_type_hobby"
+            name="hobby"
             placeholder="О себе"
             id="hobby"
           />
@@ -94,7 +94,7 @@
             minlength="2"
             maxlength="30"
             class="popup__input popup__input_type_place"
-            name="popup_add-form__input_type_place"
+            name="place"
             placeholder="Введите название"
             id="place"
           />
@@ -103,11 +103,11 @@
             type="url"
             required
             class="popup__input popup__input_type_link"
-            name="popup_add-form__input_type_link"
+            name="link"
             placeholder="Введите ссылку на картинку"
-            id="url"
+            id="link"
           />
-          <span id="error-url" class="popup__error-message"></span>
+          <span id="error-link" class="popup__error-message"></span>
           <button class="popup__submit-btn" type="submit">Создать</button>
         </form>
         <button
@@ -136,7 +136,7 @@
         ></button>
       </div>
     </section>
-    <script type="module" src="./scripts/FormValidator.js"></script>
-    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/components/FormValidator.js"></script>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
