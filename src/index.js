@@ -1,11 +1,11 @@
-import { initialCards, validationConfig, configInfo, openButtonEditForm, openButtonAddForm, formEditPopup, formAddPopup } from './scripts/utils/constants.js';
-import Card from './scripts/components/Card.js';
-import FormValidator from './scripts/components/FormValidator.js';
-import PopupWithImage from './scripts/components/PopupWithImage.js';
-import Popup from './scripts/components/Popup.js';
-import Section from './scripts/components/Section.js';
-import UserInfo from './scripts/components/userInfo.js';
-import PopupWithForm from './scripts/components/PopupWithForm.js';
+import { initialCards, validationConfig, configInfo, openButtonEditForm, openButtonAddForm, formEditPopup, formAddPopup } from '../scripts/utils/constants.js';
+import Card from '../scripts/components/Card.js';
+import FormValidator from '../scripts/components/FormValidator.js';
+import PopupWithImage from '../scripts/components/PopupWithImage.js';
+import Popup from '../scripts/components/Popup.js';
+import Section from '../scripts/components/Section.js';
+import UserInfo from '../scripts/components/userInfo.js';
+import PopupWithForm from '../scripts/components/PopupWithForm.js';
 
 const userInfo = new UserInfo(configInfo);
 const popup = new Popup ('.popup');
@@ -53,3 +53,5 @@ addFormValidator.enableValidation();
 
 const editFormValidator = new FormValidator( validationConfig, formEditPopup);
 editFormValidator.enableValidation();
+
+import './styles/index.css';
