@@ -6,6 +6,8 @@ import Section from '../components/Section.js';
 import UserInfo from '../components/userInfo.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 
+//не совсем понял некоторые замечания, распишите чуть подробнее, пожалуйста
+
 const userInfo = new UserInfo(configInfo);
 const popupWithImage = new PopupWithImage('.popup_photo');
 
