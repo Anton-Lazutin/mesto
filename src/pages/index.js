@@ -1,14 +1,12 @@
-import { initialCards, validationConfig, configInfo, openButtonEditForm, openButtonAddForm, formEditPopup, formAddPopup } from '../scripts/utils/constants.js';
-import Card from '../scripts/components/Card.js';
-import FormValidator from '../scripts/components/FormValidator.js';
-import PopupWithImage from '../scripts/components/PopupWithImage.js';
-import Popup from '../scripts/components/Popup.js';
-import Section from '../scripts/components/Section.js';
-import UserInfo from '../scripts/components/userInfo.js';
-import PopupWithForm from '../scripts/components/PopupWithForm.js';
+import { initialCards, validationConfig, configInfo, openButtonEditForm, openButtonAddForm, formEditPopup, formAddPopup } from '../components/constants.js';
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import Section from '../components/Section.js';
+import UserInfo from '../components/userInfo.js';
+import PopupWithForm from '../components/PopupWithForm.js';
 
 const userInfo = new UserInfo(configInfo);
-const popup = new Popup ('.popup');
 const popupWithImage = new PopupWithImage('.popup_photo');
 
 const section = new Section({
@@ -22,28 +20,29 @@ section.render();
 
 const popupEditForm = new PopupWithForm('.popup_edit-form', (evt) => {
   evt.preventDefault();
-  userInfo.setUserInfo(popupEditForm.getInputValue());
+  userInfo.setUserInfo(popupEditForm._getInputValue());
   popupEditForm.close();
-  editFormValidator.toggleButtonState();
+
 })
 
 const popupAddCardForm = new PopupWithForm('.popup_add-form', (evt) => {
   evt.preventDefault();
-  section.addItem(section.renderer(popupAddCardForm.getInputValue()));
+  section.addItem(section.renderer(popupAddCardForm._getInputValue()));
   popupAddCardForm.close();
-  addFormValidator.toggleButtonState();
+
 });
 
 openButtonEditForm.addEventListener('click', () => {
+  editFormValidator.toggleButtonState();
   popupEditForm.setInputValue(userInfo.getUserInfo())
   popupEditForm.open();
 });
 
 openButtonAddForm.addEventListener('click',  () => {
+  addFormValidator.toggleButtonState();
   popupAddCardForm.open();
 }); 
 
-popup.setEventListeners();
 popupWithImage.setEventListeners();
 popupEditForm.setEventListeners();
 popupAddCardForm.setEventListeners();
@@ -54,4 +53,4 @@ addFormValidator.enableValidation();
 const editFormValidator = new FormValidator( validationConfig, formEditPopup);
 editFormValidator.enableValidation();
 
-import './styles/index.css';
+import './index.css';
