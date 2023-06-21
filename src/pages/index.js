@@ -6,32 +6,28 @@ import Section from '../components/Section.js';
 import UserInfo from '../components/userInfo.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 
-//не совсем понял некоторые замечания, распишите чуть подробнее, пожалуйста
-
 const userInfo = new UserInfo(configInfo);
 const popupWithImage = new PopupWithImage('.popup_photo');
 
+const createCard = (element) => {
+  const card = new Card(element, '#basic-cards', popupWithImage.open);
+  return card.generateCard();
+};
+
 const section = new Section({
   items: initialCards,
-  renderer: (element) => {
-    const card = new Card(element, '#basic-cards', popupWithImage.open);
-    return card.generateCard();
-  }
+  renderer: createCard
 }, '.photo-cards');
 section.render();
 
-const popupEditForm = new PopupWithForm('.popup_edit-form', (evt) => {
-  evt.preventDefault();
-  userInfo.setUserInfo(popupEditForm._getInputValue());
+const popupEditForm = new PopupWithForm('.popup_edit-form', (data) => {
+  userInfo.setUserInfo(data);
   popupEditForm.close();
-
 })
 
-const popupAddCardForm = new PopupWithForm('.popup_add-form', (evt) => {
-  evt.preventDefault();
-  section.addItem(section.renderer(popupAddCardForm._getInputValue()));
+const popupAddCardForm = new PopupWithForm('.popup_add-form', (data) => {
+  section.addItem(createCard(data));
   popupAddCardForm.close();
-
 });
 
 openButtonEditForm.addEventListener('click', () => {
