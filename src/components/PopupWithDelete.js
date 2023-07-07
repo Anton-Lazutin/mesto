@@ -4,7 +4,7 @@ export default class PopupWithDelete extends Popup {
     constructor(popupSelector, submitFunction) {
         super(popupSelector);
         this._submitFunction = submitFunction;
-        this._form = this._popup.querySelector('.popup_confirm-form');
+        this._form = this._popup.querySelector('.popup__confirm-form');
     }
 
     setEventListeners() {
