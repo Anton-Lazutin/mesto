@@ -36,13 +36,26 @@ const validationConfig = {
 
 const configInfo = {
   profileNameSelector: '.profile__name',
-  profileHobbySelector: '.profile__hobby'
+  profileHobbySelector: '.profile__hobby',
+  profileAvatarSelector: '.profile__photo'
 };
 
 const openButtonEditForm = document.querySelector('.profile__edit-btn');
 const openButtonAddForm = document.querySelector('.profile__add-btn');
+const openAvatarChanging = document.querySelector('.profile__avatar-overlay');
 
 const formEditPopup = document.forms['edit-form'];
 const formAddPopup = document.forms['add-form'];
+const formAvatar = document.forms['avatar-form'];
 
-export {initialCards, validationConfig, configInfo, openButtonEditForm, openButtonAddForm, formEditPopup, formAddPopup};
+export {
+  initialCards,
+  validationConfig,
+  configInfo,
+  openButtonEditForm,
+  openButtonAddForm,
+  formEditPopup,
+  formAddPopup,
+  formAvatar,
+  openAvatarChanging
+};
