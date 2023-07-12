@@ -5,13 +5,12 @@ export default class Section {
   }
 
   render(dataCard) {
-      dataCard.reverse()
-      dataCard.forEach (element => {
-          this.addItem(element);
-  });
-}
+    dataCard.forEach((item) => {
+      this._renderer(item);
+    });
+  }
 
-  addItem(data) {
-    this._container.prepend(this._renderer(data));
+  addItem(element) {
+    this._container.prepend(element);
   }
 }

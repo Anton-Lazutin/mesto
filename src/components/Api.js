@@ -6,7 +6,7 @@ export default class Api {
   }
 
   _checkResponse(res) {
-    return res.ok ? res.json() : Promise.reject (`Ошибка: ${res.status}`);
+    return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
   }
 
   getInfo() {
@@ -14,7 +14,8 @@ export default class Api {
       headers: {
         authorization: this._authorization,
       }
-    }).then(this._checkResponse);
+    })
+    .then(this._checkResponse);
   }
 
   getCards() {
@@ -22,7 +23,8 @@ export default class Api {
       headers: {
         authorization: this._authorization,
       }
-    }).then(this._checkResponse);
+    })
+    .then(this._checkResponse);
   }
 
   setUserInfo(data) {
@@ -30,10 +32,11 @@ export default class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: data.name,
-        about: data.about,
+        name: data.username,
+        about: data.hobby,
       })
-    }).then(this._checkResponse);
+    })
+    .then(this._checkResponse);
   }
 
   setUserAvatar(data) {
@@ -43,7 +46,8 @@ export default class Api {
       body: JSON.stringify({
         avatar: data.avatar,
       })
-    }).then(this._checkResponse);
+    })
+    .then(this._checkResponse);
   }
 
   addCard(data) {
@@ -51,10 +55,11 @@ export default class Api {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: data.name,
+        name: data.place,
         link: data.link,
       })
-    }).then(this._checkResponse);
+    })
+    .then(this._checkResponse);
   }
 
   addLike(cardId) {
@@ -63,7 +68,8 @@ export default class Api {
       headers: {
         authorization: this._authorization,
       }
-    }).then(this._checkResponse);
+    })
+    .then(this._checkResponse);
   }
 
   deleteLike(cardId) {
@@ -72,7 +78,8 @@ export default class Api {
       headers: {
         authorization: this._authorization,
       }
-    }).then(this._checkResponse);
+    })
+    .then(this._checkResponse);
   }
 
   deleteCard(cardId) {
@@ -81,6 +88,7 @@ export default class Api {
       headers: {
         authorization: this._authorization,
       }
-    }).then(this._checkResponse);
+    })
+    .then(this._checkResponse);
   }
 }

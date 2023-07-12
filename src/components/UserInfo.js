@@ -8,13 +8,7 @@ export default class UserInfo {
   getUserInfo() {
     return {
       username: this._profileName.textContent,
-      hobby: this._profileHobby.textContent
-    };
-  }
-
-  getUserAvatar() {
-    return {
-      avatar: this._link.src
+      hobby: this._profileHobby.textContent,
     };
   }
 
@@ -23,12 +17,4 @@ export default class UserInfo {
     this._profileHobby.textContent = hobby;
     this._profileAvatar.src = avatar;
   }
-
-  setUserId(_id) {
-    this._id = _id
-  }
-
-  getUserId(){
-    return this._id 
-  } 
 }
