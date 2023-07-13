@@ -40,7 +40,7 @@ export default class Card {
   }
 
   _handleLikeClick() {
-    this._changeLike(this._cardLikeButton, this._cardId);
+    this._changeLike(this._cardId);
   }
 
   toggleLikes(likes) {
