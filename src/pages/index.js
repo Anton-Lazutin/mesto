@@ -39,7 +39,7 @@ const popupWithDelete = new PopupWithDelete(".popup_delete", ({card, cardId}) =>
   .catch((error) => console.error(`Ошибка: ${error}`))
   .finally(()=> popupWithDelete.resetDefaultText())
 })
-// да, получилось, спасибо большое за помощь =)
+
 const createCard = (element) => {
   const card = new Card(element, "#basic-cards", popupWithImage.open, popupWithDelete.open, cardId => {
     if (card.isMyLike()) {
