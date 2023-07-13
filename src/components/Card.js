@@ -48,12 +48,16 @@ export default class Card {
     this._counter.textContent = likes.length;
   }
 
+  isMyLike() {
+    return this._cardLikeButton.classList.contains('card__like-btn_active');
+  }
+
   removeCard() {
     this._element.remove();
   }
 
   _changeVisibilityDltBtn() {
-    this._myId === this._ownerId ? this._cardDeleteButton.style.display = 'block' : this._cardDeleteButton.style.display = 'none'
+    this._myId === this._ownerId ? this._cardDeleteButton.classList.remove('card__dlt-btn_disable') : this._cardDeleteButton.classList.add('card__dlt-btn_disable')
   }
 
   _checkLikeStatus() {

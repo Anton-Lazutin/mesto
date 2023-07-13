@@ -37,11 +37,12 @@ const popupWithDelete = new PopupWithDelete(".popup_delete", ({card, cardId}) =>
     popupWithDelete.close();
   })
   .catch((error) => console.error(`Ошибка: ${error}`))
+  .finally(()=> popupWithDelete.resetDefaultText())
 })
 
 const createCard = (element) => {
   const card = new Card(element, "#basic-cards", popupWithImage.open, popupWithDelete.open, (likeElement, cardId) => {
-    if (likeElement.classList.contains('card__like-btn_active')) {
+    if (card.isMyLike(likeElement)) {
       api.deleteLike(cardId)
       .then(res => {
         card.toggleLikes(res.likes);
@@ -75,8 +76,8 @@ const popupEditForm = new PopupWithForm(".popup_edit-form", (data) => {
 })
 
 const popupAddCardForm = new PopupWithForm(".popup_add-form", (data) => {
-  Promise.all([api.getInfo(), api.addCard(data)])
-  .then(([dataUser, dataCard]) => {
+  api.addCard(data)
+  .then((dataCard) => {
     dataCard.myId = dataUser._id;
     section.addItem(createCard(dataCard));
     popupAddCardForm.close();

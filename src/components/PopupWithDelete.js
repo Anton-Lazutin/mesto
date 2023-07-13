@@ -4,7 +4,9 @@ export default class PopupWithDelete extends Popup {
   constructor(popupSelector, submitFunction) {
     super(popupSelector);
     this._submitFunction = submitFunction;
+    this._form = this._popup.querySelector(".popup__input-form");
     this._submitButton = this._form.querySelector(".popup__submit-btn");
+    this._defaultSubmitButtonText = this._submitButton.textContent;
   }
 
   setEventListeners() {
@@ -14,6 +16,10 @@ export default class PopupWithDelete extends Popup {
       this._submitButton.textContent = `Удаление...`
       this._submitFunction({card: this._element, cardId: this._cardId});
     });
+  }
+
+  resetDefaultText() {
+    this._submitButton.textContent = this._defaultSubmitButtonText;
   }
 
   open = ({card, cardId}) => {
