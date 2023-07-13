@@ -39,10 +39,10 @@ const popupWithDelete = new PopupWithDelete(".popup_delete", ({card, cardId}) =>
   .catch((error) => console.error(`Ошибка: ${error}`))
   .finally(()=> popupWithDelete.resetDefaultText())
 })
-
+//доброго времени суток, если я удаляю этот паратмер, то лайк перестает ставиться, и удаляться тоже
 const createCard = (element) => {
-  const card = new Card(element, "#basic-cards", popupWithImage.open, popupWithDelete.open, (likeElement, cardId) => {
-    if (card.isMyLike(likeElement)) {
+  const card = new Card(element, "#basic-cards", popupWithImage.open, popupWithDelete.open, cardId => {
+    if (card.isMyLike()) {
       api.deleteLike(cardId)
       .then(res => {
         card.toggleLikes(res.likes);
@@ -78,7 +78,7 @@ const popupEditForm = new PopupWithForm(".popup_edit-form", (data) => {
 const popupAddCardForm = new PopupWithForm(".popup_add-form", (data) => {
   api.addCard(data)
   .then((dataCard) => {
-    dataCard.myId = dataUser._id;
+    dataCard.myId = dataCard.owner._id;
     section.addItem(createCard(dataCard));
     popupAddCardForm.close();
   })
